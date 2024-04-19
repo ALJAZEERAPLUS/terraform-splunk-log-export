@@ -15,7 +15,7 @@
 project = "ajgc-dig-app-ops-01"
 region  = "europe-west1"
 create_network      = true
-network             = "gcp_splunk_exporter"
+network             = "gcp-splunk-exporter"
 subnet              = ""
 primary_subnet_cidr = "10.128.0.0/24"
 
