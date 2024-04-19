@@ -15,7 +15,7 @@
 project = "ajgc-dig-app-ops-01"
 region  = "europe-west1"
 create_network      = true
-network             = ""
+network             = "gcp_splunk_exporter"
 subnet              = ""
 primary_subnet_cidr = "10.128.0.0/24"
 
@@ -26,7 +26,7 @@ log_filter = ""
 splunk_hec_url                      = "https://http-inputs.ajdigital.splunkcloud.com"
 splunk_hec_token_source             = "SECRET_MANAGER"
 #splunk_hec_token                    = ""
-splunk_hec_token_secret_id          = "projects/773926933358/secrets/splunk_gcp_log_exporter_hec_token"
+splunk_hec_token_secret_id          = "projects/773926933358/secrets/splunk_gcp_log_exporter_hec_token/versions/latest"
 splunk_hec_token_kms_encryption_key = ""
 
 # Dataflow job parameters
