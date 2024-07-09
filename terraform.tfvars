@@ -21,32 +21,13 @@ primary_subnet_cidr = "10.128.0.0/24"
 
 # Log sink details
 log_filter = <<EOF
-                (resource.type="cloud_run_revision"
-                resource.labels.service_name="mam-frontend-qa"
+                (resource.type="cloud_run_revision"   
                 resource.labels.project_id="ajgc-dig-pdi-dev-mam-0")
                 OR
                 (resource.type="cloud_run_revision"
-                resource.labels.service_name="mam-frontend-dev"
-                resource.labels.project_id="ajgc-dig-pdi-dev-mam-0")
-                OR
-                (resource.type="cloud_run_revision"
-                resource.labels.service_name="mam-extractimagefromvideo"
-                resource.labels.project_id="ajgc-dig-pdi-dev-mam-0")
-                OR
-                (resource.type="cloud_run_revision"
-                resource.labels.service_name="mam-frontend-staging"
-                resource.labels.project_id="ajgc-dig-pdi-vidicore-exp-0")
-                OR
-                (resource.type = "cloud_run_revision"
-                resource.labels.service_name = "mam-extractimagefromvideo"
                 resource.labels.project_id="ajgc-dig-pdi-vidicore-exp-0")
                 OR
                 (resource.type="cloud_run_revision"
-                resource.labels.service_name="mam-frontend-prod"
-                resource.labels.project_id="ajgc-dig-pdi-prd-mam-0")
-                OR
-                (resource.type="cloud_run_revision"
-                resource.labels.service_name="mam-extractimagefromvideo"
                 resource.labels.project_id="ajgc-dig-pdi-prd-mam-0")
                 OR
                 (resource.type="loadbalancing.googleapis.com/InternalNetworkLoadBalancerRule"
@@ -55,6 +36,29 @@ log_filter = <<EOF
                 (resource.type="http_load_balancer"
                 resource.labels.project_id="ajgc-tno-net-prd-hub-01"
                 resource.labels.forwarding_rule_name="vidispine-prod")
+                OR
+                (resource.type="http_load_balancer"
+                resource.labels.project_id="ajgc-tno-net-prd-hub-01"
+                resource.labels.forwarding_rule_name="dev-vidispine")
+                OR
+                (resource.type="http_load_balancer"
+                resource.labels.project_id="ajgc-tno-net-prd-hub-01"
+                resource.labels.forwarding_rule_name="vidispine.stg")
+                OR
+                (
+                resource.type="http_load_balancer"
+                resource.labels.backend_service_name="mam-frontend-staging-backend"
+                )
+                OR
+                (
+                resource.type="http_load_balancer"
+                resource.labels.backend_service_name="mam-frontend-prod-backend"
+                )
+                OR
+                (
+                resource.type="http_load_balancer"
+                resource.labels.backend_service_name="mam-frontend-qa-backend"
+                )
              EOF
 
 
